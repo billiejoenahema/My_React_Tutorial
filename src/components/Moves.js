@@ -1,17 +1,24 @@
 import React from 'react'
+import { Button } from '@material-ui/core'
 
 const Moves = React.memo(({ history, setHistory, jumpTo }) => {
   return (
     <ol>
       {history.map((_, move) => {
-        const desc = move ? `${move}番に移動` : `ゲームスタート`
+        const description = move ? `${move}番に移動` : `ゲームスタート`
         return (
-          <li key={move}>
-            <button onClick={() => jumpTo(move, setHistory)}>{desc}</button>
+          <li className="moves-list" key={move}>
+            <Button onClick={() => {
+              jumpTo(move, setHistory)
+            }}
+              variant="contained"
+            >
+              {description}
+            </Button>
           </li>
         )
       })}
-    </ol>
+    </ol >
   )
 })
 export default Moves

@@ -48,3 +48,7 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
+.moves-list {
+  margin-bottom: 0.5rem;
+}
