@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Board from './Board'
 import Moves from './Moves'
 
-const Game = () => {
+const Game = React.memo(() => {
   const [history, setHistory] = useState([{
     squares: Array(9).fill(null)
   }])
@@ -55,7 +55,7 @@ const Game = () => {
       </div>
     </div>
   )
-}
+})
 export default Game
 
 function calculateWinner(squares) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Moves = ({ history, setHistory, jumpTo }) => {
+const Moves = React.memo(({ history, setHistory, jumpTo }) => {
   return (
     <ol>
       {history.map((_, move) => {
@@ -13,5 +13,5 @@ const Moves = ({ history, setHistory, jumpTo }) => {
       })}
     </ol>
   )
-}
+})
 export default Moves
