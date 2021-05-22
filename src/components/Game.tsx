@@ -4,14 +4,14 @@ import Moves from './Moves'
 import { calculateWinner } from '../calculateWinner'
 
 const Game = React.memo(() => {
-  const [history, setHistory] = useState([{
+  const [history, setHistory] = useState<{ squares: string[] }[]>([{
     squares: Array(9).fill(null)
   }])
 
-  const [stepNumber, setStepNumber] = useState(0)
-  const [xIsNext, setXIsNext] = useState(true)
+  const [stepNumber, setStepNumber] = useState<number>(0)
+  const [xIsNext, setXIsNext] = useState<boolean>(true)
 
-  const handleClick = i => {
+  const handleClick = (i: number) => {
     const _history = history.slice(0, stepNumber + 1)
 
     const current = _history[_history.length - 1]
@@ -27,7 +27,7 @@ const Game = React.memo(() => {
     setXIsNext(!xIsNext)
   }
 
-  const jumpTo = step => {
+  const jumpTo = (step: number) => {
     setStepNumber(step)
     setXIsNext(step % 2 === 0)
     if (step === 0) {
@@ -48,7 +48,7 @@ const Game = React.memo(() => {
   return (
     <div className="game">
       <div className="game-board">
-        <Board squares={current.squares} onClick={(i) => { handleClick(i) }} />
+        <Board squares={current.squares} onClick={(i: number) => { handleClick(i) }} />
       </div>
       <div className="game-info">
         <div>{status}</div>

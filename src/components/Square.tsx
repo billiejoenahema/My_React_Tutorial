@@ -6,7 +6,7 @@ const squareStyle = {
   fontSize: '36px'
 }
 
-const Square = React.memo(({ value, onClick }) => {
+const Square: React.NamedExoticComponent<object> = React.memo(({ value, onClick }) => {
   return (
     <button className="square" onClick={onClick} style={squareStyle}>
       {value}
