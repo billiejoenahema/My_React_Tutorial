@@ -1,7 +1,12 @@
 import React from 'react'
 import Square from './Square'
 
-const Board = ({ squares, onClick }) => {
+type Props = {
+  squares: string[],
+  onClick: React.MouseEvent<HTMLElement>
+}
+
+const Board: React.FC<Props> = ({ squares, onClick }) => {
 
   return (
     <div>
@@ -13,16 +18,14 @@ const Board = ({ squares, onClick }) => {
                 [...Array(3)].map((_, j) => {
                   const index = 3 * i + j
                   return (
-                    <Square
-                      value={squares[index]}
-                      onClick={() => onClick(index)}
-                      key={j}
-                    > </Square>
+                    <Square value={squares[index]} onClick={() => onClick(index)} key={j} />
                   )
-                })}
+                })
+              }
             </div>
           )
-        })}
+        })
+      }
     </div >
   )
 }
